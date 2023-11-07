@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <header class="header">
+        <p class="page">Simple Calculator</p>
+        <div class="left-section">
+            <a href="https://youtu.be/dQw4w9WgXcQ">
+            <img class="left-arrow" src="images/left.png"></a>
+            <img class="right-arrow" src="images/right.png">
+            <img class="cross" src="images/cross.png">
+            <img class="home-img" src="images/home.png">     
+        </div>
+
+        <div class="middle-section">
+            <input class="search-bar" type="text" placeholder="https://localhost">
+            <a href="https://youtu.be/dQw4w9WgXcQ">
+                <img class="search-icon" src="images/search.png">
+            </a>
+        </div>
+    </header>
+
+    <div class="main-container" >    
+        <div class="calculator-container">
+            <div class="header-box">
+                <p class="heder-box-text">Hitung Luas Bangun Datar</p>
+                <div class="box-radio">
+                    <div class="radios">
+                        <form action="index.html" method="post">
+                            <div class="radios">
+                                <label  for="radio-1">
+                                    <input  type="radio" name="radio-1"><p id="check-text">Persegi</p>
+                                </label>
+
+                                <label for="radio-2">                          
+                                    <input  type="radio" name="radio-2"><p>Persegi Panjang</p>
+                                </label>
+                            </div>
+                            
+                            <div class="radios-2">
+                                <label  for="radio-3">
+                                    <input  type="radio" name="radio-3"><p>Segitiga</p>
+                                </label>
+                                <label  for="radio-4">
+                                    <input  type="radio" name="radio-4"><p>Lingkaran</p>
+                                </label>
+                            </div>
+                        </form>
+                    </div> 
+                </div>
+            </div>
+            <div class="card-container">
+                <p class="card-text">Alas</p>
+                <input id="input" type="number" name="angka1" >
+                <p class="card-text">Tinggi</p>
+                <input id="input" type="number" name="angka2" >
+            </div>
+            <div class="button-result">
+                <button type="submit" name="hitung" class="hasil-button">Hitung</button>  
+            </div>
+        </div> 
+        <div class="calculator-container-2">
+            <div class="header-box">
+                <p class="heder-box-text">HASIL</p>
+            </div>
+            <div class="hasil-type">
+                <p>Kamu Menghitung Rumus Luas Persegi Panjang</p>
+            </div>
+            <div class="hasil-type-2">
+                <img id="image-persegi-panjang" src="images/persegi-panjang.png" alt="">
+                <p id="text-persegi-panjang">Hasil Hitung Luas:</p>
+                <p id="text-hasil-persegi-panjang">15cm</p>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-container">
+        <img class="strips-icon" src="images/strips.png">
+    </footer>
+</body>
