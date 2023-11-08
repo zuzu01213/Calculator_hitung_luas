@@ -3,7 +3,7 @@ form{
   width: 500px;
   height: 160px;
 }
-
+  
 body {
     margin: 1px;
     background-color: #F1F6F9;
@@ -37,7 +37,8 @@ body {
     border-bottom: 3px solid black;
     display: grid;
     justify-content: center;
-
+    font-size: 20px;
+   
   }
 
  p {
@@ -56,6 +57,7 @@ body {
   justify-content: space-evenly;
  }
  .radios-2 {
+  margin-top: 0px;
   margin-right: 53px;
  }
   
@@ -146,8 +148,12 @@ input[type='radio']:checked:after {
 }
 
 
-.hasil-type  {
-  height: 70px;
+#hasil-type  {
+  height: 50px;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
 }
 
 #image-persegi-panjang, #image-lingkaran, #image-segitiga, #image-persegi {
@@ -156,16 +162,20 @@ input[type='radio']:checked:after {
   margin-left: 160px;
   margin-bottom: 0px;
 }
-#text-persegi-panjang, #text-lingkaran, #text-segitiga, #text-persegi  {
-  margin-left: 320px;
-  margin-bottom: 20px;
+#text-persegi-panjang {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
   font-size: 20px;
 }
-#text-hasil-persegi-panjang, #text-hasil-lingkaran, #text-hasil-segitiga, #text-hasil-persegi {
-  margin-left: 360px;
-  margin-bottom: 100px;
+.text-hasil-persegi-panjang, .text-hasil-lingkaran, .text-hasil-segitiga, .text-hasil-persegi {
+  display: flex;
+  justify-content: center;
   font-weight: bold;
   font-size: 40px;
+}
+::placeholder{
+  color: rgb(196, 196, 196);
 }
 
 
