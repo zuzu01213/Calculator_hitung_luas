@@ -41,9 +41,9 @@
                                     <input  type="radio" name="shape" id="radio-1" value="persegi">
                                 </label>persegi
 
-                                <label for="radio-2">                         
+                                <label for="radio-2">                    
                                     <input  type="radio" name="shape" id="radio-2" value="persegi-panjang">  
-                                </label>persegi-panjang 
+                                </label>persegi panjang 
                             </div>
                             
                             <div class="radios-2">
@@ -59,9 +59,9 @@
                 </div>
             </div>
             <div class="card-container">
-                <p class="card-text">Angka Pertama</p>
+                <p id="card-text">Angka Pertama</p>
                 <input id="input" type="number" name="angka1" >
-                <p class="card-text">Angka Kedua</p>
+                <p id="card-text">Angka Kedua</p>
                 <input id="input" type="number" name="angka2" >
             </div>
             <div class="button-result">
@@ -76,11 +76,12 @@
                 <p>Silahkan Pilih Rumus Bangun Datar</p>
             </div>
             <div class="hasil-type-2">
+                <div class="image-hasil">
                 <img id="image-persegi-panjang" src="images/persegi-panjang.png" alt="">
-                <img id="image-persegi-panjang" src="images/segitiga.png" alt="">
-                <img id="image-persegi-panjang" src="images/lingkaran.png" alt="">
-                <img id="image-persegi-panjang" src="images/persegi.png" alt="">
-
+                <img id="image-segitiga" src="images/segitiga.png" alt="" hidden>
+                <img id="image-lingkaran" src="images/lingkaran.png" alt="" hidden>
+                <img id="image-persegi" src="images/persegi.png" alt="" hidden>
+            </div>
                 <p id="text-persegi-panjang">Hasil Hitung Luas:</p>
                 <p class="text-hasil-persegi-panjang" id="result" >0cm</p>
             </div>
@@ -90,28 +91,38 @@
         <img class="strips-icon" src="images/strips.png">
     </footer>
     <script>
+
         function togglePlaceholder() {
+
             var selectedShape = $("input[name='shape']:checked").val();
             var alasInput = $("input[name='angka1']");
             var tinggiInput = $("input[name='angka2']");
             
+
             if (selectedShape === "persegi") {
-                alasInput.attr("placeholder", "Alas");
-                tinggiInput.attr("placeholder", "Alas");
+                alasInput.attr("placeholder", "Sisi");
+                tinggiInput.attr("placeholder", "Sisi");
             } else if (selectedShape === "persegi-panjang") {
                 alasInput.attr("placeholder", "Alas");
                 tinggiInput.attr("placeholder", "Tinggi");
+            } else if (selectedShape === "segitiga") {
+                alasInput.attr("placeholder", "Jari-Jari");
+                tinggiInput.attr("placeholder", "Diameter");
+            } else if (selectedShape === "lingkaran") {
+                alasInput.attr("placeholder", "Jari-Jari");
+                tinggiInput.attr("placeholder", "Jari-Jari");
             }
         }
-
+    
         function calculateArea() {
+
             togglePlaceholder(); 
             var selectedShape = $("input[name='shape']:checked").val();
             var alas = parseFloat($("input[name='angka1']").val());
             var tinggi = parseFloat($("input[name='angka2']").val());
-
+    
             var result = 0;
-
+    
             if (selectedShape === "persegi") {
                 result = alas * alas;
             } else if (selectedShape === "persegi-panjang") {
@@ -119,26 +130,54 @@
             } else if (selectedShape === "segitiga") {
                 result = (alas * tinggi) / 2;
             } else if (selectedShape === "lingkaran") {
-                result = 3.14 * (alas / 2) * (alas / 2);
+                result = 3.14 * (alas) * (alas);
             }
-
-            $("#result").text(result + " cm²");
+    
+            if (isNaN(result)) {
+                $("#result").text("Tolong masukkan angka yang valid!");
+            } else {
+                $("#result").text(result + " cm²");
+            }
         }
+        
+
         $("input[name='shape']").on("change", function() {
+
             var selectedShape = $("input[name='shape']:checked").val();
             var hasilType = "Kamu Menghitung Rumus Luas " + selectedShape;
             $("#hasil-type").text(hasilType);
+
         });
 
+    
+        $("input[name='shape']").on("change", function() {
 
+            var selectedShape = $("input[name='shape']:checked").val();
+            var hasilType = "Kamu Menghitung Rumus Luas " + selectedShape;
+            $("#hasil-type").text(hasilType);
+    
+            $("#image-persegi-panjang, #image-segitiga, #image-lingkaran, #image-persegi").hide();
+            if (selectedShape === "persegi") {
+                $("#image-persegi").show();
+            } else if (selectedShape === "persegi-panjang") {
+                $("#image-persegi-panjang").show();
+            } else if (selectedShape === "segitiga") {
+                $("#image-segitiga").show();
+            } else if (selectedShape === "lingkaran") {
+                $("#image-lingkaran").show();
+            }
+            
+        });
+    
+        
         $(".hasil-button").on("click", function() {
             calculateArea();
         });
-
+    
         $("input[name='shape']").on("change", function() {
             togglePlaceholder();
         });
-    </script>   
+    </script>    
 </body>
 
 
